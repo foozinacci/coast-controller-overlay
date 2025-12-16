@@ -89,12 +89,10 @@ const elements = {
     viewBtn: null,
     menuBtn: null,
     xboxBtn: null,
-    // Back paddles (all 4 - displayed on right side of controller visual)
-    // Based on Elite 2 mapping: P1=RB, P2=?, P3=B, P4=Y
+    // Back paddles (2 left-side paddles only)
+    // P1 = B (Crouch), P2 = RB (Tactical)
     p1: null,
     p2: null,
-    p3: null,
-    p4: null,
 
     // Mouse buttons
     mouseLeft: null,
@@ -151,8 +149,6 @@ function cacheElements() {
     elements.xboxBtn = document.getElementById('xbox-btn');
     elements.p1 = document.getElementById('p1');
     elements.p2 = document.getElementById('p2');
-    elements.p3 = document.getElementById('p3');
-    elements.p4 = document.getElementById('p4');
 
     // Mouse elements
     elements.mouseLeft = document.getElementById('mouse-left');
@@ -264,23 +260,12 @@ function processButtons(gamepad) {
     setButtonState(elements.menuBtn, buttons[GAMEPAD_BUTTONS.MENU]?.pressed);
     setButtonState(elements.xboxBtn, buttons[GAMEPAD_BUTTONS.XBOX]?.pressed);
 
-    // Back Paddles (Elite 2 - remapped via Xbox Accessories app)
-    // Based on user's Elite 2 config, paddles are remapped to:
-    // Check if paddles report as separate buttons (17-20) first
-    if (buttons.length > GAMEPAD_BUTTONS.P1) {
-        setButtonState(elements.p1, buttons[GAMEPAD_BUTTONS.P1]?.pressed);
-        setButtonState(elements.p2, buttons[GAMEPAD_BUTTONS.P2]?.pressed);
-        setButtonState(elements.p3, buttons[GAMEPAD_BUTTONS.P3]?.pressed);
-        setButtonState(elements.p4, buttons[GAMEPAD_BUTTONS.P4]?.pressed);
-    } else {
-        // Fallback: paddles are remapped to standard buttons
-        // P1 → B, P2 → RB, P3 → B, P4 → Y (based on config image)
-        // This means multiple paddles may light up together
-        setButtonState(elements.p1, buttons[GAMEPAD_BUTTONS.B]?.pressed);
-        setButtonState(elements.p2, buttons[GAMEPAD_BUTTONS.RB]?.pressed);
-        setButtonState(elements.p3, buttons[GAMEPAD_BUTTONS.B]?.pressed);
-        setButtonState(elements.p4, buttons[GAMEPAD_BUTTONS.Y]?.pressed);
-    }
+    // Back Paddles (Elite 2 - 2 left-side paddles only)
+    // Remapped via Xbox Accessories app:
+    // P1 → B (Crouch)
+    // P2 → RB (Tactical)
+    setButtonState(elements.p1, buttons[GAMEPAD_BUTTONS.B]?.pressed);
+    setButtonState(elements.p2, buttons[GAMEPAD_BUTTONS.RB]?.pressed);
 }
 
 function processLeftStick(gamepad) {
