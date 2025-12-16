@@ -8,130 +8,145 @@
 </head>
 <body>
     <div class="overlay-container">
-        <!-- Left Hand: Xbox Elite 2 Controller (Left Side + Back Paddles) -->
+        <!-- Left Hand: Xbox Elite 2 Controller (Left Side Front + Back Paddles on Right) -->
         <div class="controller-section">
-            <svg class="controller-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                <!-- Controller Body - Left Half with integrated back paddle display -->
+            <svg class="controller-svg" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
                         <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
                     </filter>
                 </defs>
 
-                <!-- Main Controller Body -->
+                <!-- Main Controller Body (Xbox style) -->
                 <path id="controller-body" class="body" filter="url(#shadow)" d="
-                    M 200 50
-                    C 160 50, 120 60, 100 80
-                    L 60 120
-                    C 40 140, 30 160, 30 180
-                    L 30 220
-                    C 30 250, 50 270, 80 270
-                    L 120 270
-                    C 140 270, 155 255, 160 240
-                    L 170 200
-                    C 175 185, 185 180, 200 180
-                    L 200 180
-                    C 215 180, 225 185, 230 200
-                    L 240 240
-                    C 245 255, 260 270, 280 270
-                    L 320 270
-                    C 350 270, 370 250, 370 220
-                    L 370 180
-                    C 370 160, 360 140, 340 120
-                    L 300 80
-                    C 280 60, 240 50, 200 50
+                    M 220 35
+                    C 180 35, 140 45, 115 65
+                    L 70 105
+                    C 45 130, 35 155, 35 180
+                    L 40 215
+                    C 45 245, 70 265, 100 265
+                    L 130 260
+                    C 155 255, 170 235, 178 210
+                    L 190 170
+                    C 198 150, 210 145, 220 145
+                    C 230 145, 242 150, 250 170
+                    L 262 210
+                    C 270 235, 285 255, 310 260
+                    L 340 265
+                    C 370 265, 395 245, 400 215
+                    L 405 180
+                    C 405 155, 395 130, 370 105
+                    L 325 65
+                    C 300 45, 260 35, 220 35
                     Z
                 "/>
 
-                <!-- LT - Left Trigger (ADS) -->
-                <path id="lt" class="button" d="
-                    M 85 45
-                    C 95 40, 130 35, 145 40
-                    L 150 55
-                    C 140 60, 100 60, 85 55
-                    Z
-                "/>
-                <text x="117" y="52" class="button-label">ADS</text>
+                <!-- Xbox Button (center top) -->
+                <circle id="xbox-btn" class="button xbox-btn" cx="220" cy="75" r="14"/>
+                <text x="220" y="80" class="button-label xbox-label">X</text>
 
-                <!-- LB - Left Bumper (Extra Character Action) -->
+                <!-- ========== LEFT SIDE (Front Face) ========== -->
+
+                <!-- LB - Left Bumper -->
                 <path id="lb" class="button" d="
-                    M 90 62
-                    C 100 58, 135 55, 150 58
-                    L 152 72
-                    C 140 75, 105 75, 92 72
+                    M 105 52
+                    C 118 47, 155 44, 172 48
+                    L 175 62
+                    C 160 66, 120 66, 107 62
                     Z
                 "/>
-                <text x="121" y="69" class="button-label">EXTRA</text>
+                <text x="140" y="58" class="button-label">LB</text>
 
-                <!-- Left Stick (LS) - Sprint/Toggle Zoom -->
-                <circle id="ls-base" class="stick-base" cx="105" cy="145" r="32"/>
-                <circle id="ls" class="button stick" cx="105" cy="145" r="24"/>
-                <text x="105" y="142" class="button-label stick-label">MOVE</text>
-                <text x="105" y="154" class="button-label-tiny">(SPRINT)</text>
+                <!-- LT - Left Trigger -->
+                <path id="lt" class="button" d="
+                    M 100 35
+                    C 115 28, 160 26, 178 32
+                    L 180 48
+                    C 162 52, 118 52, 102 46
+                    Z
+                "/>
+                <text x="140" y="42" class="button-label">LT</text>
+
+                <!-- Left Stick (LS) -->
+                <circle id="ls-base" class="stick-base" cx="125" cy="125" r="30"/>
+                <circle id="ls" class="button stick" cx="125" cy="125" r="22"/>
+                <text x="125" y="129" class="button-label stick-label">LS</text>
 
                 <!-- D-Pad -->
-                <g id="dpad" transform="translate(105, 215)">
-                    <!-- D-Pad Base -->
-                    <rect class="dpad-base" x="-25" y="-25" width="50" height="50" rx="5"/>
-                    <!-- D-Pad Up (Toggle Fire Mode) -->
-                    <path id="dpad-up" class="button dpad-btn" d="M -8 -25 L 8 -25 L 8 -8 L -8 -8 Z"/>
-                    <!-- D-Pad Down (Ping) -->
-                    <path id="dpad-down" class="button dpad-btn" d="M -8 8 L 8 8 L 8 25 L -8 25 Z"/>
+                <g id="dpad" transform="translate(125, 200)">
+                    <!-- D-Pad Base (checkered pattern like reference) -->
+                    <rect class="dpad-base" x="-22" y="-22" width="44" height="44" rx="4"/>
+
+                    <!-- D-Pad Up -->
+                    <rect id="dpad-up" class="button dpad-btn" x="-8" y="-22" width="16" height="16" rx="2"/>
+                    <!-- D-Pad Down -->
+                    <rect id="dpad-down" class="button dpad-btn" x="-8" y="6" width="16" height="16" rx="2"/>
                     <!-- D-Pad Left -->
-                    <path id="dpad-left" class="button dpad-btn" d="M -25 -8 L -8 -8 L -8 8 L -25 8 Z"/>
-                    <!-- D-Pad Right (Health Kit) -->
-                    <path id="dpad-right" class="button dpad-btn" d="M 8 -8 L 25 -8 L 25 8 L 8 8 Z"/>
+                    <rect id="dpad-left" class="button dpad-btn" x="-22" y="-8" width="16" height="16" rx="2"/>
+                    <!-- D-Pad Right -->
+                    <rect id="dpad-right" class="button dpad-btn" x="6" y="-8" width="16" height="16" rx="2"/>
+
                     <!-- D-Pad Center -->
-                    <rect class="dpad-center" x="-8" y="-8" width="16" height="16"/>
+                    <rect class="dpad-center" x="-8" y="-8" width="16" height="16" rx="2"/>
                 </g>
-                <!-- D-Pad Labels -->
-                <text x="105" y="178" class="action-label">FIRE MODE</text>
-                <text x="105" y="262" class="action-label">PING</text>
-                <text x="60" y="218" class="action-label-side"></text>
-                <text x="150" y="218" class="action-label-side">HEAL</text>
 
-                <!-- Menu Buttons -->
-                <circle id="view-btn" class="button menu-btn" cx="170" cy="105" r="8"/>
-                <text x="170" y="122" class="button-label-small">MAP</text>
+                <!-- Menu Buttons (small dots near center) -->
+                <circle id="view-btn" class="button menu-btn" cx="185" cy="105" r="6"/>
+                <circle id="menu-btn" class="button menu-btn" cx="255" cy="105" r="6"/>
 
-                <circle id="menu-btn" class="button menu-btn" cx="230" cy="105" r="8"/>
-                <text x="230" y="122" class="button-label-small">MENU</text>
+                <!-- ========== RIGHT SIDE (Back Paddles Display) ========== -->
+                <!-- These represent the back of the left grip, shown on right side -->
 
-                <!-- Xbox Button -->
-                <circle id="xbox-btn" class="button xbox-btn" cx="200" cy="90" r="12"/>
-                <text x="200" y="94" class="button-label xbox-label">X</text>
-
-                <!-- Back Paddles Section (displayed on right side of visual) -->
-                <!-- Only showing LEFT back paddles (P1 and P3) since user only uses left hand -->
-
-                <!-- Visual separator for back paddles area -->
-                <text x="320" y="128" class="section-label">BACK PADDLES</text>
-
-                <!-- P1 - Upper Left Back (Tactical Ability - mapped to RB) -->
+                <!-- Upper Back Paddles Area -->
+                <!-- P1 - Upper paddle (mapped to RB = Tactical) -->
                 <path id="p1" class="button paddle" d="
-                    M 275 145
-                    C 290 138, 330 138, 345 145
-                    L 350 175
-                    C 335 182, 295 182, 280 175
+                    M 275 115
+                    C 285 110, 315 110, 325 115
+                    L 328 145
+                    C 318 152, 290 152, 280 145
                     Z
                 "/>
-                <text x="312" y="165" class="button-label">TACTICAL</text>
+                <text x="302" y="136" class="button-label">P1</text>
 
-                <!-- P3 - Lower Left Back (Crouch - mapped to B) -->
-                <path id="p3" class="button paddle" d="
-                    M 275 195
-                    C 290 188, 330 188, 345 195
-                    L 350 225
-                    C 335 232, 295 232, 280 225
+                <!-- P2 - Upper right paddle -->
+                <path id="p2" class="button paddle" d="
+                    M 335 115
+                    C 345 110, 375 110, 385 115
+                    L 388 145
+                    C 378 152, 350 152, 340 145
                     Z
                 "/>
-                <text x="312" y="215" class="button-label">CROUCH</text>
+                <text x="362" y="136" class="button-label">P2</text>
+
+                <!-- Lower Back Paddles Area -->
+                <!-- P3 - Lower paddle (mapped to B = Crouch) -->
+                <path id="p3" class="button paddle" d="
+                    M 280 165
+                    C 290 158, 318 158, 328 165
+                    L 330 200
+                    C 320 208, 292 208, 282 200
+                    Z
+                "/>
+                <text x="305" y="188" class="button-label">P3</text>
+
+                <!-- P4 - Lower right paddle (mapped to Y = Weapon) -->
+                <path id="p4" class="button paddle" d="
+                    M 340 165
+                    C 350 158, 378 158, 388 165
+                    L 390 200
+                    C 380 208, 352 208, 342 200
+                    Z
+                "/>
+                <text x="365" y="188" class="button-label">P4</text>
+
+                <!-- Labels for paddle section -->
+                <text x="345" y="100" class="section-label">BACK PADDLES</text>
             </svg>
         </div>
 
         <!-- Right Hand: Logitech M650 L Mouse -->
         <div class="mouse-section">
-            <svg class="mouse-svg" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+            <svg class="mouse-svg" viewBox="0 0 180 280" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <filter id="mouse-shadow" x="-20%" y="-20%" width="140%" height="140%">
                         <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
@@ -140,94 +155,90 @@
 
                 <!-- Mouse Body -->
                 <path id="mouse-body" class="body" filter="url(#mouse-shadow)" d="
-                    M 100 20
-                    C 140 20, 170 50, 170 90
-                    L 170 250
-                    C 170 290, 140 310, 100 310
-                    C 60 310, 30 290, 30 250
-                    L 30 90
-                    C 30 50, 60 20, 100 20
+                    M 90 15
+                    C 130 15, 155 45, 155 80
+                    L 155 220
+                    C 155 255, 130 275, 90 275
+                    C 50 275, 25 255, 25 220
+                    L 25 80
+                    C 25 45, 50 15, 90 15
                     Z
                 "/>
 
-                <!-- Left Click (Attack) -->
+                <!-- Left Click -->
                 <path id="mouse-left" class="button mouse-btn" d="
-                    M 45 25
-                    C 55 22, 75 20, 95 20
-                    L 95 120
-                    L 45 120
-                    L 45 50
-                    C 45 35, 45 28, 45 25
+                    M 38 20
+                    C 50 16, 70 15, 85 15
+                    L 85 105
+                    L 38 105
+                    L 38 45
+                    C 38 30, 38 23, 38 20
                     Z
                 "/>
-                <text x="70" y="70" class="button-label">ATK</text>
+                <text x="62" y="65" class="button-label">L</text>
 
                 <!-- Right Click -->
                 <path id="mouse-right" class="button mouse-btn" d="
-                    M 155 25
-                    C 145 22, 125 20, 105 20
-                    L 105 120
-                    L 155 120
-                    L 155 50
-                    C 155 35, 155 28, 155 25
+                    M 142 20
+                    C 130 16, 110 15, 95 15
+                    L 95 105
+                    L 142 105
+                    L 142 45
+                    C 142 30, 142 23, 142 20
                     Z
                 "/>
-                <text x="130" y="70" class="button-label">R</text>
+                <text x="118" y="65" class="button-label">R</text>
 
                 <!-- Scroll Wheel Area -->
-                <rect id="scroll-bg" class="scroll-base" x="85" y="45" width="30" height="50" rx="10"/>
+                <rect id="scroll-bg" class="scroll-base" x="77" y="40" width="26" height="45" rx="8"/>
 
-                <!-- Scroll Up Indicator (Reload) -->
+                <!-- Scroll Up Indicator -->
                 <path id="scroll-up" class="button scroll-btn" d="
-                    M 100 48
-                    L 110 60
-                    L 90 60
+                    M 90 43
+                    L 99 54
+                    L 81 54
                     Z
                 "/>
 
-                <!-- Scroll Click (Middle - Cycle Weapon) -->
-                <ellipse id="mouse-middle" class="button scroll-click" cx="100" cy="70" rx="10" ry="8"/>
-                <text x="100" y="73" class="button-label-tiny">SWAP</text>
+                <!-- Scroll Click (Middle) -->
+                <ellipse id="mouse-middle" class="button scroll-click" cx="90" cy="63" rx="9" ry="7"/>
+                <text x="90" y="66" class="button-label-tiny">M</text>
 
-                <!-- Scroll Down Indicator (Reload) -->
+                <!-- Scroll Down Indicator -->
                 <path id="scroll-down" class="button scroll-btn" d="
-                    M 100 92
-                    L 110 80
-                    L 90 80
+                    M 90 82
+                    L 99 71
+                    L 81 71
                     Z
                 "/>
-
-                <!-- Scroll labels -->
-                <text x="145" y="55" class="action-label-mouse">RELOAD</text>
-                <text x="145" y="90" class="action-label-mouse">RELOAD</text>
 
                 <!-- Side Button 4 (Melee) -->
                 <path id="mouse-4" class="button side-btn" d="
-                    M 30 130
-                    L 25 130
-                    C 20 130, 18 135, 18 140
-                    L 18 165
-                    C 18 172, 20 177, 25 177
-                    L 30 177
+                    M 25 120
+                    L 18 120
+                    C 12 120, 10 126, 10 132
+                    L 10 158
+                    C 10 164, 12 170, 18 170
+                    L 25 170
                     Z
                 "/>
-                <text x="5" y="158" class="button-label-small side-label">MELEE</text>
+                <text x="2" y="150" class="button-label-small side-label">4</text>
 
-                <!-- Side Button 5 (Ultimate Ability) -->
+                <!-- Side Button 5 (Ultimate) -->
                 <path id="mouse-5" class="button side-btn" d="
-                    M 30 187
-                    L 25 187
-                    C 20 187, 18 192, 18 197
-                    L 18 222
-                    C 18 229, 20 234, 25 234
-                    L 30 234
+                    M 25 180
+                    L 18 180
+                    C 12 180, 10 186, 10 192
+                    L 10 218
+                    C 10 224, 12 230, 18 230
+                    L 25 230
                     Z
                 "/>
-                <text x="5" y="215" class="button-label-small side-label">ULT</text>
+                <text x="2" y="210" class="button-label-small side-label">5</text>
 
                 <!-- Sensor Indicator -->
-                <ellipse id="sensor" class="sensor" cx="100" cy="280" rx="15" ry="8"/>
-                <text x="100" y="298" class="button-label-small">AIM</text>
+                <ellipse id="sensor" class="sensor" cx="90" cy="252" rx="14" ry="7"/>
+                <text x="90" y="268" class="button-label-small">AIM</text>
             </svg>
         </div>
     </div>
