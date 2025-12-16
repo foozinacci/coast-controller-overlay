@@ -89,10 +89,10 @@ const elements = {
     viewBtn: null,
     menuBtn: null,
     xboxBtn: null,
+    // Back paddles (only left side - P1 and P3)
+    // P1 is remapped to RB (Tactical), P3 is remapped to B (Crouch)
     p1: null,
-    p2: null,
     p3: null,
-    p4: null,
 
     // Mouse buttons
     mouseLeft: null,
@@ -148,9 +148,7 @@ function cacheElements() {
     elements.menuBtn = document.getElementById('menu-btn');
     elements.xboxBtn = document.getElementById('xbox-btn');
     elements.p1 = document.getElementById('p1');
-    elements.p2 = document.getElementById('p2');
     elements.p3 = document.getElementById('p3');
-    elements.p4 = document.getElementById('p4');
 
     // Mouse elements
     elements.mouseLeft = document.getElementById('mouse-left');
@@ -262,20 +260,12 @@ function processButtons(gamepad) {
     setButtonState(elements.menuBtn, buttons[GAMEPAD_BUTTONS.MENU]?.pressed);
     setButtonState(elements.xboxBtn, buttons[GAMEPAD_BUTTONS.XBOX]?.pressed);
 
-    // Back Paddles (Elite 2 specific - may need adjustment based on your mapping)
-    // Note: These might be mapped to buttons 17-20, or remapped via Xbox Accessories app
-    if (buttons.length > GAMEPAD_BUTTONS.P1) {
-        setButtonState(elements.p1, buttons[GAMEPAD_BUTTONS.P1]?.pressed);
-    }
-    if (buttons.length > GAMEPAD_BUTTONS.P2) {
-        setButtonState(elements.p2, buttons[GAMEPAD_BUTTONS.P2]?.pressed);
-    }
-    if (buttons.length > GAMEPAD_BUTTONS.P3) {
-        setButtonState(elements.p3, buttons[GAMEPAD_BUTTONS.P3]?.pressed);
-    }
-    if (buttons.length > GAMEPAD_BUTTONS.P4) {
-        setButtonState(elements.p4, buttons[GAMEPAD_BUTTONS.P4]?.pressed);
-    }
+    // Back Paddles (Elite 2 - remapped via Xbox Accessories app)
+    // P1 paddle is remapped to RB (Tactical Ability)
+    // P3 paddle is remapped to B (Crouch)
+    // So we listen for the remapped button signals
+    setButtonState(elements.p1, buttons[GAMEPAD_BUTTONS.RB]?.pressed);
+    setButtonState(elements.p3, buttons[GAMEPAD_BUTTONS.B]?.pressed);
 }
 
 function processLeftStick(gamepad) {

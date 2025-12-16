@@ -202,6 +202,34 @@ html, body {
     font-size: 10px;
 }
 
+/* Action labels (outside buttons) */
+.action-label {
+    font-size: 8px;
+    font-weight: 600;
+    fill: var(--text-color);
+    text-anchor: middle;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.action-label-side {
+    font-size: 7px;
+    font-weight: 600;
+    fill: var(--text-color);
+    text-anchor: middle;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.action-label-mouse {
+    font-size: 7px;
+    font-weight: 600;
+    fill: var(--text-color);
+    text-anchor: start;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
 /* Status Panel (for debugging - hide in OBS) */
 .status-panel {
     position: fixed;
